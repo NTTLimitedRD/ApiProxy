@@ -4,12 +4,15 @@ ApiProxy is a proxy and a mock api host.
 If it finds a Mock file then it will replay the mock, else will route the request to the default api configured endpoint
 
 How to write Api mocks:
+
 Api Proxy follows a folder and file based paths to the find the mock json file
 Typical structure is Folder for the HttpMethod ie GET POST DELETE will have a folder
 Then all the url parts except query parameters will have a folder
 Special characters are :
+
 1> '_'  for wildcard for a url part
 eg : GET  https://api.com/crm/1.3/a4f484de-b9ed-43e4-b565-afbf69417615/customer/order  points to  "\MocksApis\GET\crm\1.3\_\customer\order" with wildcard for orgId 
+
 2> '_q' folder if you wish to create a special handling for query parameters 
 eg :GET  https://api.com/crm/1.3/a4f484de-b9ed-43e4-b565-afbf69417615/customer/order?a=b  can points to
             "\MocksApis\GET\crm\1.3\_\customer\order\_q\a=_"
@@ -19,7 +22,9 @@ To help create the folder structure, enable RecordingApiToDefaultAddress flag in
 you can edit this file and copy the same structure into mock path to start replaying.
  
 File Content :  
+
 1> Replay Mock :
+
           The important fields are highlighted, this will replay the response with the Status OK 
 {
 "Method":"GET",
@@ -36,9 +41,12 @@ File Content :
 }
  
 Note: make sure that you escape the " in the request content and response content by \"  in order to not break the JSON
+
 2> Replay Transformed Mock: 
+
         This is the case supported only for post and put, as we might need to vary the response based on the input content.
 Currently varying response status code if done via xsl:message containing content StatusCode=<HttpStatusCode>
+
 {"Method":"GET","UserName":"any","Url":"","StatusCode":"NoContent","RequestContent":"","ResponseContentType":"application/xml","ResponseContent":"<?xml version=\"1.0\" encoding=\"UTF-8\"?><healthcheck>OK Response</healthcheck>","Configuration":{ "Mock":"True", "Transform" : {"RequestContent" :{"XsltFileName":"healthcheck.xslt"}}}}
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl">
@@ -51,7 +59,9 @@ Currently varying response status code if done via xsl:message containing conten
 </xsl:copy>
 </xsl:template>
 </xsl:stylesheet>
+
 3> Transform Response : 
+
 In this case it will make the real call against the real api  ie https://api.com/crm/1.3/a4f484de-b9ed-43e4-b565-afbf69417615/customer/order
 and apply the xslt on top of the response
 {
@@ -81,8 +91,11 @@ Place order.xslt in the same folder
     </xsl:copy>
   </xsl:template>
 </xsl:stylesheet>
+
 4> Transform Request :
+
       a. Trimming Query parameters : this will help remove any query parameter to be sent to the real api server
+
 eg:
 {"Method":"GET","Uri":"https://api.com/crm/1.3/a4f484de-b9ed-43e4-b565-afbf69417615/customer/customer","StatusCode":"OK","RequestContent":"","ResponseContentType":"application/xml","Configuration":{"Transform" : {"Body" :{"XsltFileName":"customer.xslt"}, "Query":{"TrimQueryParameters":"id"}}}}
  
@@ -90,6 +103,7 @@ eg:
          Currently it support request contents of type application/xml and  application/x-www-form-urlencoded
  
 i.application/x-www-form-urlencoded
+
  
 {"Method":"POST","Uri":"","StatusCode":"OK","RequestContent":"","ResponseContent":"","ResponseContentType":"application/xml","Configuration":{"Transform":{"RequestContent":{"TrimQueryParameters":"role=drs"}},"Mock":false}}
 ii.application/xml (xslt based)

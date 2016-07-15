@@ -1,0 +1,72 @@
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using ApiProxy.Contracts;
+using Newtonsoft.Json;
+
+namespace ApiProxy
+{
+    public class ApiProxy : IApiProxy
+    {
+        private readonly IApiProxyProviderFactory _apiProxyProviderFactory;
+        readonly IApiProxyConfiguration _proxyConfiguration;
+        private readonly IApiProxyRecordProvider _apiProxyRecordProvider;
+        public ApiProxy(IApiProxyConfiguration proxyConfiguration, IApiProxyProviderFactory apiProxyProviderFactory, IApiProxyRecordProvider apiProxyRecordProvider)
+        {
+            if (proxyConfiguration == null)
+                throw new ArgumentNullException(nameof(proxyConfiguration));
+            _proxyConfiguration = proxyConfiguration;
+
+            if (apiProxyProviderFactory == null)
+                throw new ArgumentNullException(nameof(apiProxyProviderFactory));
+            _apiProxyProviderFactory = apiProxyProviderFactory;
+
+            if (apiProxyRecordProvider == null)
+                throw new ArgumentNullException(nameof(apiProxyRecordProvider));
+            _apiProxyRecordProvider = apiProxyRecordProvider;
+        }
+        	
+		public async Task<HttpResponseMessage> ProcessRequestAsync(HttpRequestMessage request)
+		{
+		    if (request == null)
+		        throw new ArgumentNullException(nameof(request));
+
+		    var activityId = Guid.NewGuid();            
+            ApiProxyEvents.Raise.ReceivedRequest(request.RequestUri.ToString());		    
+
+            // Neither the mock path is there nor the default api, so cant do anything
+            if (string.IsNullOrWhiteSpace(_proxyConfiguration.ApiMocksPath) && _proxyConfiguration.DefaultApiAddress == null)
+            {
+                return request.CreateResponse(HttpStatusCode.InternalServerError,
+                    new ErrorResponse
+                    {
+                        ActivityId = activityId,
+                        Message = "Neither the mock path is there nor the default api, so cant do anything"
+                    }
+                    );
+            }
+
+            // We now catch an exception from the runner
+            try
+            {
+                var apiRecord = _apiProxyRecordProvider.GetApiRecord(request);
+                var proxyProvider = _apiProxyProviderFactory.GetApiProxyProvider(apiRecord, request, _proxyConfiguration);
+                return await proxyProvider.ProcessRequestAsync(request, activityId);
+            }
+            catch (Exception ex)
+            {
+                ApiProxyEvents.Raise.UnhandledException(request.RequestUri.ToString(), ex.Message, ex.StackTrace ?? String.Empty);
+                return request.CreateResponse(HttpStatusCode.InternalServerError,
+                    new ErrorResponse
+                    {
+                        ActivityId = activityId,
+                        Message = ex.Message
+                    }
+                    );
+            }            
+        }
+    }
+}

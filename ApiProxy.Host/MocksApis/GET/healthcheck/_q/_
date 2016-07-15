@@ -1,0 +1,1 @@
+{"Method":"GET","UserName":"any","Url":"","StatusCode":"OK","RequestContent":"","ResponseContentType":"application/xml","ResponseContent":"<?xml version=\"1.0\" encoding=\"UTF-8\"?><healthcheck>OK Response</healthcheck>"}

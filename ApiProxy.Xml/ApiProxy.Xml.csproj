@@ -59,6 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SolutionAssemblyInfo.cs">
+      <Link>Properties\SolutionAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="HttpRequestMessageExtensions.cs" />
     <Compile Include="XmlAction.cs" />
     <Compile Include="XmlApiRecordExtensions.cs" />

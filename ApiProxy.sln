@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProxy.ServiceHost", "Api
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProxy.ApiControllers", "ApiProxy.ApiControllers\ApiProxy.ApiControllers.csproj", "{74429BAA-F764-43AB-9C64-AD938E06A0E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProxy.ApiProxyHttpClient", "ApiProxy.ApiProxyHttpClient\ApiProxy.ApiProxyHttpClient.csproj", "{C5F75DE0-6FF5-440E-9DEF-DC66CBD89501}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{74429BAA-F764-43AB-9C64-AD938E06A0E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74429BAA-F764-43AB-9C64-AD938E06A0E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74429BAA-F764-43AB-9C64-AD938E06A0E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5F75DE0-6FF5-440E-9DEF-DC66CBD89501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5F75DE0-6FF5-440E-9DEF-DC66CBD89501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5F75DE0-6FF5-440E-9DEF-DC66CBD89501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5F75DE0-6FF5-440E-9DEF-DC66CBD89501}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

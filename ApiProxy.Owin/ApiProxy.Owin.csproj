@@ -47,7 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\SolutionAssemblyInfo.cs">
-      <Link>SolutionAssemblyInfo.cs</Link>
+      <Link>Properties\SolutionAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ApiProxyIocModule.cs" />
     <Compile Include="ApiProxyProviderFactory.cs" />

@@ -16,3 +16,5 @@ Stage/
 packages/
 ApiProxy/obj/Debug/ApiProxy.csprojResolveAssemblyReference.cache
 ApiProxy/obj/
+ApiProxy.ApiProxyHttpClient/bin/
+ApiProxy.ApiProxyHttpClient/obj/

@@ -88,7 +88,8 @@ namespace ApiProxy
                     // this is a global override for paths underneath
                     return Path.Combine(currentNodePath, "_");
                 }
-                ApiProxyEvents.Raise.VerboseMessaging(string.Format("Exact match not found, the look up failed at : {0}", currentNodePath));
+                ApiProxyEvents.Raise.VerboseMessaging(
+                    $"Exact match not found, the look up failed at : {currentNodePath}");
                 return string.Empty;
             }
 
@@ -143,7 +144,8 @@ namespace ApiProxy
                         if (subFiles.Length > 0)
                             return subFiles[0];
                     }
-                    ApiProxyEvents.Raise.VerboseMessaging(string.Format("No Exact match found for the query parameters in : {0}", currentNodePath));
+                    ApiProxyEvents.Raise.VerboseMessaging(
+                        $"No Exact match found for the query parameters in : {currentNodePath}");
                 }
 
                 // wild card in the query strings folder
@@ -185,9 +187,13 @@ namespace ApiProxy
                             : string.Empty
 
                 };
-                var urlParts = request.RequestUri.PathAndQuery.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                var urlParts =
+                    request.RequestUri.PathAndQuery.TrimEnd(new char[] {'?', '&'})
+                        .Split(new char[] {'/'}, StringSplitOptions.RemoveEmptyEntries)
+                        .ToList();
 
                 var fileName = "_";
+               
                 // last one contains the queryparameters 
                 if (urlParts[urlParts.Count - 1].Contains("?"))
                 {

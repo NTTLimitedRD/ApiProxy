@@ -11,7 +11,7 @@ namespace ApiProxy.ApiProxyHttpClient
         public string ApiMocksPath { get; set; }
 
         public string ApiRecordingPath { get; set; }
-              
+
         public Uri DefaultApiAddress { get; set; }
 
         public bool FallbackToDefaultApi { get; set; }

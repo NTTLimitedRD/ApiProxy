@@ -3,7 +3,8 @@ using Microsoft.Diagnostics.Tracing;
 
 namespace ApiProxy.Contracts
 {
-	public sealed class ApiProxyEvents : EventSource
+    [EventSource(Name = EventSourceName)]
+    public sealed class ApiProxyEvents : EventSource
 	{
 		/// <summary>
 		/// The singleton instance.

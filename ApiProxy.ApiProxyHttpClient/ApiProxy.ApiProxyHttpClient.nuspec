@@ -15,16 +15,14 @@
           </group>
         </dependencies>
     </metadata>
-	<files>
-    <files>
-      <file src="bin\Release\DD.ApiProxy.ApiProxyHttpClient.dll" target="lib\net45\DD.ApiProxy.ApiProxyHttpClient.dll" />
-      <file src="bin\Release\DD.ApiProxy.ApiProxyHttpClient.pdb" target="lib\net45\DD.ApiProxy.ApiProxyHttpClient.pdb" />
-      <file src="bin\Release\DD.ApiProxy.Contracts.dll" target="lib\net45\DD.ApiProxy.Contracts.dll" />
-      <file src="bin\Release\DD.ApiProxy.Contracts.pdb" target="lib\net45\DD.ApiProxy.Contracts.pdb" />
-      <file src="bin\Release\DD.ApiProxy.dll" target="lib\net45\DD.ApiProxy.dll" />
-      <file src="bin\Release\DD.ApiProxy.pdb" target="lib\net45\DD.ApiProxy.pdb" />
-      <file src="bin\Release\DD.ApiProxy.Xml.dll" target="lib\net45\DD.ApiProxy.Xml.dll" />
-      <file src="bin\Release\DD.ApiProxy.Xml.pdb" target="lib\net45\DD.ApiProxy.Xml.pdb" />
-    </files>			
-	</files>
+  <files>
+    <file src="bin\Release\DD.ApiProxy.ApiProxyHttpClient.dll" target="lib\net45\DD.ApiProxy.ApiProxyHttpClient.dll" />
+    <file src="bin\Release\DD.ApiProxy.ApiProxyHttpClient.pdb" target="lib\net45\DD.ApiProxy.ApiProxyHttpClient.pdb" />
+    <file src="bin\Release\DD.ApiProxy.Contracts.dll" target="lib\net45\DD.ApiProxy.Contracts.dll" />
+    <file src="bin\Release\DD.ApiProxy.Contracts.pdb" target="lib\net45\DD.ApiProxy.Contracts.pdb" />
+    <file src="bin\Release\DD.ApiProxy.dll" target="lib\net45\DD.ApiProxy.dll" />
+    <file src="bin\Release\DD.ApiProxy.pdb" target="lib\net45\DD.ApiProxy.pdb" />
+    <file src="bin\Release\DD.ApiProxy.Xml.dll" target="lib\net45\DD.ApiProxy.Xml.dll" />
+    <file src="bin\Release\DD.ApiProxy.Xml.pdb" target="lib\net45\DD.ApiProxy.Xml.pdb" />
+  </files>
 </package>

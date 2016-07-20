@@ -34,7 +34,7 @@
 	netsh http delete urlacl url=$url
 
 	# -- fixup app.config
-	$configFile = Join-Path $ConfigurationFilePath "Service/ApiProxy.Host.exe.config"	
+	$configFile = Join-Path $ConfigurationFilePath "Service/DD.ApiProxy.ServiceHost.exe.config"	
 	Write-Host "Updating app config at $configFile" 
 
 	# load the XML from the web.config
@@ -56,7 +56,7 @@
 	#-- Add new registration --
 	netsh http add urlacl url=$url user=Everyone
 
-	$exeFile = Join-Path $ConfigurationFilePath "Service/ApiProxy.Host.exe"	
+	$exeFile = Join-Path $ConfigurationFilePath "Service/DD.ApiProxy.ServiceHost.exe"	
 
 	#AppId is present in the assemblyinfo.cs as Guid
 	netsh http add sslcert ipport=$ipPort certhash=$CertificateThumbprint appid='{1CCAA836-44D1-4789-A029-3BA632F4BA37}'

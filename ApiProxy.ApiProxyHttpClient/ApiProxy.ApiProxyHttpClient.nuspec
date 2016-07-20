@@ -5,8 +5,10 @@
         <version>$version$</version>
         <authors>Manish Kumar</authors>
         <owners>Dimension Data</owners>
-        <requireLicenseAcceptance>true</requireLicenseAcceptance>
-        <description>Proxy API Http Client</description>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Proxy API Http Client with Mocking</description>
+        <summary>Dimension Data API Proxy Http Client.</summary>
+        <copyright>Copyright Dimension Data 2016</copyright>
         <dependencies>
           <group targetFramework=".NETFramework4.5">
             <dependency id="Newtonsoft.Json" version="9.0.1" />

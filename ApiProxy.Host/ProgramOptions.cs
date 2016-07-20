@@ -2,7 +2,7 @@
 using CommandLine;
 using CommandLine.Text;
 
-namespace ApiProxy.ServiceHost
+namespace DD.ApiProxy.ServiceHost
 {
     /// <summary>
 	///		Options for the Host service program.

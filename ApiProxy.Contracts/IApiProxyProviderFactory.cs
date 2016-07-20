@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 
-namespace ApiProxy.Contracts
+namespace DD.ApiProxy.Contracts
 {
     public interface IApiProxyProviderFactory
     {

@@ -2,9 +2,9 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using ApiProxy.Contracts;
+using DD.ApiProxy.Contracts;
 
-namespace ApiProxy.ApiControllers
+namespace DD.ApiProxy.ApiControllers
 {
     public class GenericController : ApiController
     {

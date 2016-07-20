@@ -3,13 +3,13 @@ using System.Configuration;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dispatcher;
-using ApiProxy.ApiControllers;
 using Autofac;
 using Autofac.Integration.WebApi;
+using DD.ApiProxy.ApiControllers;
 using Microsoft.Owin.Hosting;
 using Owin;
 
-namespace ApiProxy.Owin
+namespace DD.ApiProxy.Owin
 {
     /// <summary>
 	/// The startup.

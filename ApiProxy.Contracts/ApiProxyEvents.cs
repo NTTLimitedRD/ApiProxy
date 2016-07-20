@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Diagnostics.Tracing;
 
-namespace ApiProxy.Contracts
+namespace DD.ApiProxy.Contracts
 {
     [EventSource(Name = EventSourceName)]
     public sealed class ApiProxyEvents : EventSource
@@ -12,7 +12,7 @@ namespace ApiProxy.Contracts
 		private static readonly Lazy<ApiProxyEvents> Instance =
 			new Lazy<ApiProxyEvents>(() => new ApiProxyEvents());
 
-		public const string EventSourceName = "ApiProxy";
+		public const string EventSourceName = "DDCloud-ApiProxy";
 
 		public static ApiProxyEvents Raise
 		{

@@ -6,10 +6,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.ServiceProcess;
-using ApiProxy.Contracts;
-using ApiProxy.Owin;
+using DD.ApiProxy.Contracts;
+using DD.ApiProxy.Owin;
 
-namespace ApiProxy.ServiceHost
+namespace DD.ApiProxy.ServiceHost
 {
     /// <summary>
 	/// Console host for Api Proxy Worker

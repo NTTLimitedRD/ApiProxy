@@ -1,13 +1,10 @@
 ﻿using System;
-using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using ApiProxy.Contracts;
-using Newtonsoft.Json;
+using DD.ApiProxy.Contracts;
 
-namespace ApiProxy
+namespace DD.ApiProxy
 {
     public class ApiProxy : IApiProxy
     {

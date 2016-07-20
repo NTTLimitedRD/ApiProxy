@@ -7,8 +7,8 @@
     <ProjectGuid>{75097D24-1BDC-42BF-A1C3-4E1C7A6FF7CB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ApiProxy.Contracts</RootNamespace>
-    <AssemblyName>ApiProxy.Contracts</AssemblyName>
+    <RootNamespace>DD.ApiProxy.Contracts</RootNamespace>
+    <AssemblyName>DD.ApiProxy.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

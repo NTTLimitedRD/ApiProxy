@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ServiceProcess;
-using ApiProxy.Owin;
+using DD.ApiProxy.Owin;
 
-namespace ApiProxy.ServiceHost
+namespace DD.ApiProxy.ServiceHost
 {
     /// <summary>
 	/// The dynamic power shell api service.

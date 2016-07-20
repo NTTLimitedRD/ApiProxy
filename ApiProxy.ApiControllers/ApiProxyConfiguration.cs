@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Configuration;
-using ApiProxy.Contracts;
+using DD.ApiProxy.Contracts;
 
-namespace ApiProxy.ApiControllers
+namespace DD.ApiProxy.ApiControllers
 {
     /// <summary>
     /// Api Proxy Configuration

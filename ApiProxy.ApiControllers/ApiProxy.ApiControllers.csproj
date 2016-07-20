@@ -7,8 +7,8 @@
     <ProjectGuid>{74429BAA-F764-43AB-9C64-AD938E06A0E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ApiProxy.ApiControllers</RootNamespace>
-    <AssemblyName>ApiProxy.ApiControllers</AssemblyName>
+    <RootNamespace>DD.ApiProxy.ApiControllers</RootNamespace>
+    <AssemblyName>DD.ApiProxy.ApiControllers</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

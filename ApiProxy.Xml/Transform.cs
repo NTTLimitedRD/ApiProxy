@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ApiProxy.Xml
+namespace DD.ApiProxy.Xml
 {
     [JsonObject]
     public class Transform

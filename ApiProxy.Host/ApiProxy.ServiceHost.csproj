@@ -7,8 +7,8 @@
     <ProjectGuid>{E36E1718-BDA9-435B-8AE9-8E251DF90EF7}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ApiProxy.ServiceHost</RootNamespace>
-    <AssemblyName>ApiProxy.ServiceHost</AssemblyName>
+    <RootNamespace>DD.ApiProxy.ServiceHost</RootNamespace>
+    <AssemblyName>DD.ApiProxy.ServiceHost</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -143,13 +143,13 @@
   </ItemGroup>
   <!-- Staging logic -->
   <PropertyGroup>
-    <StageDir>..\Stage</StageDir>
+    <StageDir>..\Stage\ApiProxy.ServiceHost</StageDir>
   </PropertyGroup>
   <Target Name="StageOutputs" AfterTargets="CopyFilesToOutputDirectory" DependsOnTargets="AssignTargetPaths;BuiltProjectOutputGroup;DebugSymbolsProjectOutputGroup;DocumentationProjectOutputGroup;ContentFilesProjectOutputGroup">
     <!-- Stage primary output -->
-    <Copy SourceFiles="@(BuiltProjectOutputGroupOutput)" DestinationFiles="@(BuiltProjectOutputGroupOutput->'$(StageDir)\ApiProxy.Host\Service\%(TargetPath)')" SkipUnchangedFiles="True" />
+    <Copy SourceFiles="@(BuiltProjectOutputGroupOutput)" DestinationFiles="@(BuiltProjectOutputGroupOutput->'$(StageDir)\Service\%(TargetPath)')" SkipUnchangedFiles="True" />
     <!-- Stage symbols -->
-    <Copy SourceFiles="@(DebugSymbolsProjectOutputGroupOutput)" DestinationFiles="@(DebugSymbolsProjectOutputGroupOutput->'$(StageDir)\ApiProxy.Host\Service\%(TargetPath)')" SkipUnchangedFiles="True" />
+    <Copy SourceFiles="@(DebugSymbolsProjectOutputGroupOutput)" DestinationFiles="@(DebugSymbolsProjectOutputGroupOutput->'$(StageDir)\Service\%(TargetPath)')" SkipUnchangedFiles="True" />
     <ItemGroup>
       <_Content Include="MocksApis\**" />
     </ItemGroup>
@@ -160,10 +160,10 @@
     <ItemGroup>
       <_AssemblyDependency Include="@(ReferenceCopyLocalPaths)" />
     </ItemGroup>
-    <Copy SourceFiles="@(_AssemblyDependency)" DestinationFolder="$(StageDir)\ApiProxy.ServiceHost\Service\" SkipUnchangedFiles="True" />
-    <Copy SourceFiles="@(_Content)" DestinationFolder="$(StageDir)\ApiProxy.ServiceHost\Service\MocksApis\%(RecursiveDir)" />
+    <Copy SourceFiles="@(_AssemblyDependency)" DestinationFolder="$(StageDir)\Service\" SkipUnchangedFiles="True" />
+    <Copy SourceFiles="@(_Content)" DestinationFolder="$(StageDir)\Service\MocksApis\%(RecursiveDir)" />
     <Copy SourceFiles="@(_Content)" DestinationFolder="$(TargetDir)\MocksApis\%(RecursiveDir)" />
-    <Copy SourceFiles="@(_PowerShellContent)" DestinationFolder="$(StageDir)\ApiProxy.ServiceHost\" SkipUnchangedFiles="True" />
+    <Copy SourceFiles="@(_PowerShellContent)" DestinationFolder="$(StageDir)\" SkipUnchangedFiles="True" />
     <!-- Stage Content -->
   </Target>
   <Target Name="CopyETWManifests" BeforeTargets="BeforeBuild" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">

@@ -1,6 +1,6 @@
-﻿using ApiProxy.Contracts;
+﻿using DD.ApiProxy.Contracts;
 
-namespace ApiProxy.Xml
+namespace DD.ApiProxy.Xml
 {
     public static class XmlApiRecordExtensions
     {

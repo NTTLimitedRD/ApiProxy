@@ -1,4 +1,4 @@
-﻿namespace ApiProxy.Xml
+﻿namespace DD.ApiProxy.Xml
 {
     public enum XmlAction
     {

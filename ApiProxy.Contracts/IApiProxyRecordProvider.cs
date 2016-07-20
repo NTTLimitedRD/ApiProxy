@@ -1,7 +1,6 @@
 ﻿using System.Net.Http;
-using System.Threading.Tasks;
 
-namespace ApiProxy.Contracts
+namespace DD.ApiProxy.Contracts
 {   
     public interface IApiProxyRecordProvider
     {        

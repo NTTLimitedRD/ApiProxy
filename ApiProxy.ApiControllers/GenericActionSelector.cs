@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
-namespace ApiProxy.ApiControllers
+namespace DD.ApiProxy.ApiControllers
 {
     /// <summary>
 	/// An action selector to force our generic PowerShell invoker.

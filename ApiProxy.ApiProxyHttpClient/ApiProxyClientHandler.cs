@@ -1,11 +1,11 @@
 ﻿using System;
-using ApiProxy.Contracts;
+using DD.ApiProxy.Contracts;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ApiProxy.ApiProxyHttpClient
+namespace DD.ApiProxy.ApiProxyHttpClient
 {
     public class ApiProxyClientHandler : HttpClientHandler
     {

@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Threading.Tasks;
-using ApiProxy.Contracts;
+using DD.ApiProxy.Contracts;
 
-namespace ApiProxy
+namespace DD.ApiProxy
 {
     public class RealApiApiProxyProvider : IApiProxyProvider
     {

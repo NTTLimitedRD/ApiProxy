@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Net.Http;
-using ApiProxy.Contracts;
-using ApiProxy.Xml;
+using DD.ApiProxy.Contracts;
+using DD.ApiProxy.Xml;
 using Newtonsoft.Json;
 
-namespace ApiProxy.Owin
+namespace DD.ApiProxy.Owin
 {
     public class ApiProxyProviderFactory : IApiProxyProviderFactory
     {

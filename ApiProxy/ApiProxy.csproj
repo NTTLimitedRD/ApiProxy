@@ -7,8 +7,8 @@
     <ProjectGuid>{0E96DEE8-3BD5-4396-8C84-52AAF60EB270}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ApiProxy</RootNamespace>
-    <AssemblyName>ApiProxy</AssemblyName>
+    <RootNamespace>DD.ApiProxy</RootNamespace>
+    <AssemblyName>DD.ApiProxy</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

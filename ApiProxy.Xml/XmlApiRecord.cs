@@ -1,7 +1,7 @@
-﻿using ApiProxy.Contracts;
+﻿using DD.ApiProxy.Contracts;
 using Newtonsoft.Json;
 
-namespace ApiProxy.Xml
+namespace DD.ApiProxy.Xml
 {
     [JsonObject]
     public class XmlApiRecord : ApiRecord

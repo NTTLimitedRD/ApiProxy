@@ -7,8 +7,8 @@
     <ProjectGuid>{891AFC4A-9927-467E-A7DB-BD373F782142}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ApiProxy.Owin</RootNamespace>
-    <AssemblyName>ApiProxy.Owin</AssemblyName>
+    <RootNamespace>DD.ApiProxy.Owin</RootNamespace>
+    <AssemblyName>DD.ApiProxy.Owin</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

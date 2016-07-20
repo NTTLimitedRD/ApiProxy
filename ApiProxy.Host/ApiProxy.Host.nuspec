@@ -1,14 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>ApiProxy.ServiceHost</id>
+        <id>DD.ApiProxy.Host</id>
         <version>$version$</version>
         <authors>Manish Kumar</authors>
         <owners>Dimension Data</owners>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Proxy API suporting mock</description>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>Proxy API host suporting mock</description>
     </metadata>
 	<files>
-		<file src="ApiProxy.ServiceHost\" target="" />				
+    <files>
+      <file src="..\Stage\ApiProxy.ServiceHost\" target="" />    
+    </files>			
 	</files>
 </package>

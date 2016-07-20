@@ -1,10 +1,10 @@
 ﻿using System;
-using ApiProxy.ApiControllers;
-using ApiProxy.Contracts;
-using ApiProxy.Xml;
 using Autofac;
+using DD.ApiProxy.ApiControllers;
+using DD.ApiProxy.Contracts;
+using DD.ApiProxy.Xml;
 
-namespace ApiProxy.Owin
+namespace DD.ApiProxy.Owin
 {
     public class ApiProxyIocModule : Module
     {
@@ -14,7 +14,7 @@ namespace ApiProxy.Owin
                 throw new ArgumentNullException("builder");
 
             builder.RegisterType<ApiProxyConfiguration>().AsImplementedInterfaces();
-            builder.RegisterType<ApiProxy>().AsImplementedInterfaces();
+            builder.RegisterType<DD.ApiProxy.ApiProxy>().AsImplementedInterfaces();
             // Api Provider Factory 
             builder.RegisterType<XmlContentTypeApiProxyProvider>().Named<IApiProxyProvider>("application/xml");
             builder.RegisterType<RealApiApiProxyProvider>().Named<IApiProxyProvider>("default");

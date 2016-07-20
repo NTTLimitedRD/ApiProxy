@@ -1,7 +1,7 @@
 ﻿using System;
-using ApiProxy.Contracts;
+using DD.ApiProxy.Contracts;
 
-namespace ApiProxy.ApiProxyHttpClient
+namespace DD.ApiProxy.ApiProxyHttpClient
 {
     /// <summary>
     /// Api Proxy Configuration

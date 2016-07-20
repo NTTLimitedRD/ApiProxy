@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Xsl;
-using ApiProxy.Contracts;
+using DD.ApiProxy.Contracts;
 
-namespace ApiProxy.Xml
+namespace DD.ApiProxy.Xml
 {
     public class XmlContentTypeApiProxyProvider :
         IApiProxyProvider

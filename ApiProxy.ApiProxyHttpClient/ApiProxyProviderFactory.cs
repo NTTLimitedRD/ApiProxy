@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Net.Http;
-using ApiProxy.Contracts;
-using ApiProxy.Xml;
+using DD.ApiProxy;
+using DD.ApiProxy.Contracts;
+using DD.ApiProxy.Xml;
 using Newtonsoft.Json;
 
 namespace ApiProxy.ApiProxyHttpClient

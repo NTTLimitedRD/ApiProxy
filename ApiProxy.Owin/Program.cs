@@ -2,7 +2,7 @@
 using System.Configuration;
 using Microsoft.Owin.Hosting;
 
-namespace ApiProxy.Owin
+namespace DD.ApiProxy.Owin
 {
     /// <summary>
 	/// The main program.

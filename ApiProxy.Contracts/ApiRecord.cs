@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ApiProxy.Contracts
+namespace DD.ApiProxy.Contracts
 {
     [JsonObject]
     public class ApiRecord

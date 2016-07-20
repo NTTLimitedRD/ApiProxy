@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
-using ApiProxy.Contracts;
+using DD.ApiProxy.Contracts;
 
-namespace ApiProxy.ApiProxyHttpClient
+namespace DD.ApiProxy.ApiProxyHttpClient
 {
     public static class HttpClientFactory
     {

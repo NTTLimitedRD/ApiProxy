@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace ApiProxy.Contracts
+namespace DD.ApiProxy.Contracts
 {
     /// <summary>
     /// Api Recorder

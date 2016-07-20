@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ApiProxy.Contracts
+namespace DD.ApiProxy.Contracts
 {
     /// <summary>
     /// Api Proxy Configuration

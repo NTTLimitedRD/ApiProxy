@@ -5,10 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using ApiProxy.Contracts;
+using DD.ApiProxy.Contracts;
 using Newtonsoft.Json;
 
-namespace ApiProxy
+namespace DD.ApiProxy
 {   
     public class FolderHeirarchyBasedApiProxyRecordProvider:IApiProxyRecordProvider, IApiRecorder
     {

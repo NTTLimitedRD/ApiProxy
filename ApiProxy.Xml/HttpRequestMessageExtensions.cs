@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 
-namespace ApiProxy.Xml
+namespace DD.ApiProxy.Xml
 {
     public static class HttpRequestMessageExtensions
     {

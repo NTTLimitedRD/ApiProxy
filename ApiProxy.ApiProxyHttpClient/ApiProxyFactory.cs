@@ -1,6 +1,7 @@
-﻿using ApiProxy.Contracts;
+﻿using ApiProxy.ApiProxyHttpClient;
+using DD.ApiProxy.Contracts;
 
-namespace ApiProxy.ApiProxyHttpClient
+namespace DD.ApiProxy.ApiProxyHttpClient
 {
     public static class ApiProxyFactory
     {
@@ -8,7 +9,7 @@ namespace ApiProxy.ApiProxyHttpClient
         {            
             var folderBasedRecordProvider = new FolderHeirarchyBasedApiProxyRecordProvider(configuration);
             var apiProxyProviderFactory = new ApiProxyProviderFactory(folderBasedRecordProvider, configuration);
-            return new ApiProxy(configuration, apiProxyProviderFactory, folderBasedRecordProvider);
+            return new DD.ApiProxy.ApiProxy(configuration, apiProxyProviderFactory, folderBasedRecordProvider);
         }
     }
 }

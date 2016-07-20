@@ -4,9 +4,9 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dispatcher;
-using ApiProxy.Contracts;
+using DD.ApiProxy.Contracts;
 
-namespace ApiProxy.ApiControllers
+namespace DD.ApiProxy.ApiControllers
 {
     /// <summary>
 	/// The generic controller selector.

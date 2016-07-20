@@ -78,6 +78,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />

@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.Hosting;
 using DD.ApiProxy.Contracts;
 
 namespace DD.ApiProxy
@@ -31,7 +34,12 @@ namespace DD.ApiProxy
 		    if (request == null)
 		        throw new ArgumentNullException(nameof(request));
 
-		    var activityId = Guid.NewGuid();            
+		    if (!request.Properties.ContainsKey(HttpPropertyKeys.HttpConfigurationKey))
+		    {		      
+                request.Properties.Add(HttpPropertyKeys.HttpConfigurationKey, new HttpConfiguration());
+            }
+
+            var activityId = Guid.NewGuid();            
             ApiProxyEvents.Raise.ReceivedRequest(request.RequestUri.ToString());		    
 
             // Neither the mock path is there nor the default api, so cant do anything

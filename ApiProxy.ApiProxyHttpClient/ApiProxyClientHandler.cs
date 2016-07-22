@@ -45,7 +45,7 @@ namespace DD.ApiProxy.ApiProxyHttpClient
             {
                 RequestUri = request.RequestUri,
                 HttpMethod = request.Method,
-                RequestContent = await request.Content.ReadAsStringAsync()
+                RequestContent = request.Content !=null? await request.Content.ReadAsStringAsync() : string.Empty
             });
         }
     }

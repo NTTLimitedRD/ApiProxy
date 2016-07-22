@@ -10,6 +10,9 @@ namespace DD.ApiProxy.ApiProxyHttpClient
     public class ApiProxyClientHandler : HttpClientHandler
     {
         private readonly IApiProxyConfiguration _configuration;
+
+        public event EventHandler<RequestReceivedEventArgs> RequestReceived;
+
         public ApiProxyClientHandler(IApiProxyConfiguration configuration)
         {
             if (configuration == null)
@@ -21,6 +24,7 @@ namespace DD.ApiProxy.ApiProxyHttpClient
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
+            await OnRequestReceivedAsync(request);
             // This is only to support basic auth
             if (this.Credentials != null && request.Headers.Authorization == null)
             {
@@ -32,6 +36,17 @@ namespace DD.ApiProxy.ApiProxyHttpClient
 
             var proxy = ApiProxyFactory.GetApiProxy(_configuration);
             return await proxy.ProcessRequestAsync(request);
+        }
+
+        private async Task OnRequestReceivedAsync(HttpRequestMessage request)
+        {
+            EventHandler<RequestReceivedEventArgs> handler = RequestReceived;
+            handler?.Invoke(this, new RequestReceivedEventArgs()
+            {
+                RequestUri = request.RequestUri,
+                HttpMethod = request.Method,
+                RequestContent = await request.Content.ReadAsStringAsync()
+            });
         }
     }
 }

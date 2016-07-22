@@ -7,14 +7,19 @@ namespace DD.ApiProxy.ApiProxyHttpClient
 {
     public static class HttpClientFactory
     {
-        public static HttpClient GetHttpClient(IApiProxyConfiguration configuration, ICredentials credentials = null)
+        public static HttpClient GetHttpClient(IApiProxyConfiguration configuration, ICredentials credentials = null, EventHandler<RequestReceivedEventArgs> requestReceivedEventHandler = null)
         {
             var baseUri = configuration.DefaultApiAddress ?? new Uri("https://localhost/");
-            return new HttpClient(new ApiProxyClientHandler(configuration)
-                                    {
-                                        Credentials = credentials,
-                                        PreAuthenticate = true
-                                    })
+            var clientHandler = new ApiProxyClientHandler(configuration)
+            {
+                Credentials = credentials,
+                PreAuthenticate = true
+            };
+
+            if (requestReceivedEventHandler != null)
+                clientHandler.RequestReceived += requestReceivedEventHandler;
+
+            return new HttpClient(clientHandler)
             {
                 BaseAddress = baseUri
             };

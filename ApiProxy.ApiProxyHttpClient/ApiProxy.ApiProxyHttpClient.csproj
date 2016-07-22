@@ -56,6 +56,7 @@
     <Compile Include="ApiProxyProviderFactory.cs" />
     <Compile Include="HttpClientFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestReceivedEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApiProxy.Contracts\ApiProxy.Contracts.csproj">

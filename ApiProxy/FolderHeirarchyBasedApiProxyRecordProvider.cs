@@ -176,10 +176,10 @@ namespace DD.ApiProxy
                 var recordedResponse = new ApiRecord
                 {
                     Method = request.Method.ToString(),
-                    RequestContent = string.Empty,
+                    RequestContent = await response.Content.ReadAsStringAsync(),
                     StatusCode = HttpStatusCode.OK.ToString(),
                     Uri = request.RequestUri.ToString(),
-                    ResponseContentType = await response.Content.ReadAsStringAsync(),
+                    ResponseContentType = response.Content.Headers.ContentType.MediaType,
                     Mock = true,
                     ResponseContent =
                         response != null && response.Content != null

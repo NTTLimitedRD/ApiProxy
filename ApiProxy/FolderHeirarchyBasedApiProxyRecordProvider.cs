@@ -20,7 +20,7 @@ namespace DD.ApiProxy
             _proxyConfiguration = proxyConfiguration;
         }
 
-        public ApiRecord GetApiRecord(HttpRequestMessage request)
+        public virtual ApiRecord GetApiRecord(HttpRequestMessage request)
         {
             // if mock api path is present, then try to find the matching api recording
             if (string.IsNullOrWhiteSpace(_proxyConfiguration.ApiMocksPath))
@@ -162,7 +162,7 @@ namespace DD.ApiProxy
             return string.Empty;
         }
 
-        public async Task RecordApi(HttpRequestMessage request, HttpResponseMessage response)
+        public virtual async Task RecordApi(HttpRequestMessage request, HttpResponseMessage response)
         {
             try
             {

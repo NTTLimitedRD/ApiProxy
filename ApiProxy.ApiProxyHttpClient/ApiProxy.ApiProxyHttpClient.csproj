@@ -52,9 +52,12 @@
     </Compile>
     <Compile Include="ApiProxyClientHandler.cs" />
     <Compile Include="ApiProxyConfiguration.cs" />
+    <Compile Include="ApiProxyRecordProviderFactory.cs" />
     <Compile Include="ApiProxyFactory.cs" />
     <Compile Include="ApiProxyProviderFactory.cs" />
+    <Compile Include="HttpClientHandlerFactory.cs" />
     <Compile Include="HttpClientFactory.cs" />
+    <Compile Include="InMemoryApiProxyRecordProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestReceivedEventArgs.cs" />
   </ItemGroup>

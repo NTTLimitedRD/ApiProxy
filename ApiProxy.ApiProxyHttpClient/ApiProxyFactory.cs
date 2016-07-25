@@ -5,11 +5,11 @@ namespace DD.ApiProxy.ApiProxyHttpClient
 {
     public static class ApiProxyFactory
     {
-        public static IApiProxy GetApiProxy(IApiProxyConfiguration configuration)
+        public static IApiProxy GetApiProxy(IApiProxyConfiguration configuration, IApiProxyRecordProvider apiProxyRecordProvider)
         {            
-            var folderBasedRecordProvider = new FolderHeirarchyBasedApiProxyRecordProvider(configuration);
-            var apiProxyProviderFactory = new ApiProxyProviderFactory(folderBasedRecordProvider, configuration);
-            return new DD.ApiProxy.ApiProxy(configuration, apiProxyProviderFactory, folderBasedRecordProvider);
+            var folderBasedRecorder = new FolderHeirarchyBasedApiProxyRecordProvider(configuration);
+            var apiProxyProviderFactory = new ApiProxyProviderFactory(folderBasedRecorder, configuration);
+            return new DD.ApiProxy.ApiProxy(configuration, apiProxyProviderFactory, apiProxyRecordProvider);
         }
     }
 }

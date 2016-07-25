@@ -10,7 +10,7 @@ namespace DD.ApiProxy.ApiProxyHttpClient
     public class ApiProxyClientHandler : HttpClientHandler
     {
         private readonly IApiProxyConfiguration _configuration;
-
+        private readonly InMemoryApiProxyRecordProvider _inMemoryApiProxyRecordProvider;
         public event EventHandler<RequestReceivedEventArgs> RequestReceived;
 
         public ApiProxyClientHandler(IApiProxyConfiguration configuration)
@@ -20,6 +20,7 @@ namespace DD.ApiProxy.ApiProxyHttpClient
                 throw  new ArgumentNullException(nameof(configuration));
             }
             _configuration = configuration;
+            _inMemoryApiProxyRecordProvider = new InMemoryApiProxyRecordProvider(_configuration);
         }
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
             CancellationToken cancellationToken)
@@ -33,9 +34,13 @@ namespace DD.ApiProxy.ApiProxyHttpClient
                     Convert.ToBase64String(
                         System.Text.Encoding.ASCII.GetBytes($"{cred.UserName}:{cred.Password}")));
             }
-
-            var proxy = ApiProxyFactory.GetApiProxy(_configuration);
+            var proxy = ApiProxyFactory.GetApiProxy(_configuration, _inMemoryApiProxyRecordProvider);
             return await proxy.ProcessRequestAsync(request);
+        }
+
+        public void AddMockApiRecord(ApiRecord record)
+        {
+            _inMemoryApiProxyRecordProvider.AddApiRecord(record);
         }
 
         private async Task OnRequestReceivedAsync(HttpRequestMessage request)
@@ -46,7 +51,7 @@ namespace DD.ApiProxy.ApiProxyHttpClient
                 RequestUri = request.RequestUri,
                 HttpMethod = request.Method,
                 RequestContent = request.Content !=null? await request.Content.ReadAsStringAsync() : string.Empty
-            });
+            });            
         }
     }
 }

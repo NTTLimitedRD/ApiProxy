@@ -24,5 +24,14 @@ namespace DD.ApiProxy.ApiProxyHttpClient
                 BaseAddress = baseUri
             };
         }
+
+        public static HttpClient GetHttpClient(IApiProxyConfiguration configuration, HttpClientHandler httpClientHandler)
+        {
+            var baseUri = configuration.DefaultApiAddress ?? new Uri("https://localhost/");           
+            return new HttpClient(httpClientHandler)
+            {
+                BaseAddress = baseUri
+            };
+        }
     }
 }

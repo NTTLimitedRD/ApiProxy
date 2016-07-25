@@ -40,24 +40,24 @@ namespace DD.ApiProxy
             }
 
             var activityId = Guid.NewGuid();            
-            ApiProxyEvents.Raise.ReceivedRequest(request.RequestUri.ToString());		    
-
-            // Neither the mock path is there nor the default api, so cant do anything
-            if (string.IsNullOrWhiteSpace(_proxyConfiguration.ApiMocksPath) && _proxyConfiguration.DefaultApiAddress == null)
-            {
-                return request.CreateResponse(HttpStatusCode.InternalServerError,
-                    new ErrorResponse
-                    {
-                        ActivityId = activityId,
-                        Message = "Neither the mock path is there nor the default api, so cant do anything"
-                    }
-                    );
-            }
+            ApiProxyEvents.Raise.ReceivedRequest(request.RequestUri.ToString());		                
 
             // We now catch an exception from the runner
             try
             {
                 var apiRecord = _apiProxyRecordProvider.GetApiRecord(request);
+                // Neither the mock cannot be executed nor the default api, so cant do anything
+                if (!apiRecord.Mock && _proxyConfiguration.DefaultApiAddress == null)
+                {
+                    return request.CreateResponse(HttpStatusCode.InternalServerError,
+                        new ErrorResponse
+                        {
+                            ActivityId = activityId,
+                            Message = "Neither the mock path is there nor the default api, so cant do anything"
+                        }
+                        );
+                }
+
                 var proxyProvider = _apiProxyProviderFactory.GetApiProxyProvider(apiRecord, request, _proxyConfiguration);
                 return await proxyProvider.ProcessRequestAsync(request, activityId);
             }

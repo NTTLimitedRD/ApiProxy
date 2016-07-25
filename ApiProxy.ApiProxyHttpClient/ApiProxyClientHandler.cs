@@ -35,7 +35,10 @@ namespace DD.ApiProxy.ApiProxyHttpClient
                         System.Text.Encoding.ASCII.GetBytes($"{cred.UserName}:{cred.Password}")));
             }
             var proxy = ApiProxyFactory.GetApiProxy(_configuration, _inMemoryApiProxyRecordProvider);
-            return await proxy.ProcessRequestAsync(request);
+            var response = await proxy.ProcessRequestAsync(request);
+            // This is needed for clientHandlers
+            response.RequestMessage = request;
+            return response;
         }
 
         public void AddMockApiRecord(ApiRecord record)

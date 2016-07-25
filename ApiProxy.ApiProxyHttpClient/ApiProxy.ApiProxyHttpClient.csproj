@@ -52,7 +52,6 @@
     </Compile>
     <Compile Include="ApiProxyClientHandler.cs" />
     <Compile Include="ApiProxyConfiguration.cs" />
-    <Compile Include="ApiProxyRecordProviderFactory.cs" />
     <Compile Include="ApiProxyFactory.cs" />
     <Compile Include="ApiProxyProviderFactory.cs" />
     <Compile Include="HttpClientHandlerFactory.cs" />

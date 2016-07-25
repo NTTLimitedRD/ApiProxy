@@ -43,7 +43,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>    
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -110,7 +110,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="ApiProxy.ServiceHost.nuspec" />
+    <None Include="ApiProxy.HostService.nuspec" />
     <Content Include="DeploymentScriptsModule.psm1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

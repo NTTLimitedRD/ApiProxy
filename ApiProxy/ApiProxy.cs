@@ -47,7 +47,8 @@ namespace DD.ApiProxy
             {
                 var apiRecord = _apiProxyRecordProvider.GetApiRecord(request);
                 // Neither the mock cannot be executed nor the default api, so cant do anything
-                if (!apiRecord.Mock && _proxyConfiguration.DefaultApiAddress == null)
+                if (!apiRecord.Mock 
+                    && (!_proxyConfiguration.FallbackToDefaultApi || _proxyConfiguration.DefaultApiAddress == null))
                 {
                     return request.CreateResponse(HttpStatusCode.InternalServerError,
                         new ErrorResponse

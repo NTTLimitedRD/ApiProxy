@@ -128,11 +128,11 @@ namespace DD.ApiProxy.Xml
             return new HttpResponseMessage()
             {
                 StatusCode = statusCode,
-                Content = new StringContent(
+                Content = !string.IsNullOrEmpty(responseContent) ? new StringContent(
                 responseContent,
                 Encoding.UTF8,
                 contentType
-                )
+                ) : null
             };
         }
         private async Task<HttpResponseMessage> GetApiResponseFromDefaultApi(HttpRequestMessage request, XmlApiRecord apiRecord, Guid activityId)

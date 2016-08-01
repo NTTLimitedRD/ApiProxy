@@ -26,6 +26,7 @@ namespace ApiProxy.ApiProxyHttpClient
         {            
             switch (record.ResponseContentType)
             {
+                case "text/xml":
                 case "application/xml":                    
                     var xmlApiRecord = JsonConvert.DeserializeObject<XmlApiRecord>(record.RawContent);
                     return new XmlContentTypeApiProxyProvider(configuration, _recorder, xmlApiRecord);

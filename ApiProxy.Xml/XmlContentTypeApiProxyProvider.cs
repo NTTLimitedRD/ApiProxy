@@ -250,7 +250,7 @@ namespace DD.ApiProxy.Xml
 
         private async Task<HttpResponseMessage> TransformApiResponse(HttpRequestMessage request, Guid activityId, XmlApiRecord apiRecord, HttpResponseMessage realResponse)
         {
-            if (apiRecord.ResponseContentType != "application/xml")
+            if ((apiRecord.ResponseContentType != "application/xml") && (apiRecord.ResponseContentType != "text/xml"))
             {
                 ApiProxyEvents.Raise.VerboseMessaging(string.Format("Skipping Response Transforming the as content type is not application/xml for request:{0}", request.RequestUri));
                 return realResponse;
@@ -284,14 +284,14 @@ namespace DD.ApiProxy.Xml
         private async Task<HttpContent> TransformApiRequestContent(HttpRequestMessage request, Guid activityId, XmlApiRecord apiRecord, HttpContent realContent)
         {
             var contentType = request.Content.Headers.ContentType.MediaType;
-            if (contentType != "application/xml" && contentType != "application/x-www-form-urlencoded")
+            if (contentType != "application/xml" && contentType != "application/x-www-form-urlencoded" && contentType != "text/xml")
             {
                 ApiProxyEvents.Raise.VerboseMessaging(
                     $"Skipping Request Transforming the as content type is not application/xml or application/x-www-form-urlencoded for request:{request.RequestUri}");
                 return realContent;
             }
 
-            if (contentType == "application/xml")
+            if (contentType == "application/xml" || contentType == "text/xml")
             {
                 return await TransformApiXmlRequestContent(request, activityId, apiRecord, realContent);
             }

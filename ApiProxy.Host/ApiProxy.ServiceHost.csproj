@@ -110,7 +110,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="ApiProxy.HostService.nuspec" />
+    <None Include="ApiProxy.ServiceHost.nuspec" />
     <Content Include="DeploymentScriptsModule.psm1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

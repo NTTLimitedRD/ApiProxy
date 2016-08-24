@@ -13,11 +13,11 @@ Special characters are :
 1> '\_'  for wildcard for a url part
 eg : GET  https://api.com/crm/1.3/a4f484de-b9ed-43e4-b565-afbf69417615/customer/order  points to  "\MocksApis\GET\crm\1.3\\_\customer\order" with wildcard for orgId 
 
-2> '_q' folder if you wish to create a special handling for query parameters 
+2> '\_q' folder if you wish to create a special handling for query parameters 
 eg :GET  https://api.com/crm/1.3/a4f484de-b9ed-43e4-b565-afbf69417615/customer/order?a=b  can points to
-            "\MocksApis\GET\crm\1.3\\_\customer\order\_q\a=_"
+            "\MocksApis\GET\crm\1.3\\_\customer\order\\_q\a=_"
 or
-            "\MocksApis\GET\crm\1.3\\_\customer\order\_q\a=b"
+            "\MocksApis\GET\crm\1.3\\_\customer\order\\_q\a=b"
 To help create the folder structure, enable RecordingApiToDefaultAddress flag in the config after that any calls going to real api will create appropriate file and folder path in ApiRecordingPath. 
 you can edit this file and copy the same structure into mock path to start replaying.
  

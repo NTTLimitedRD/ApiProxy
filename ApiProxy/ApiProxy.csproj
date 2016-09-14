@@ -118,8 +118,8 @@
     <Compile Include="..\SolutionAssemblyInfo.cs">
       <Link>SolutionAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="FileBasedApiProxyRecordProvider.cs" />
     <Compile Include="FolderHeirarchyBasedApiProxyRecordProvider.cs" />
+    <Compile Include="FileBasedApiProxyRecordProvider.cs" />
     <Compile Include="RealApiApiProxyProvider.cs" />
     <Compile Include="ApiProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

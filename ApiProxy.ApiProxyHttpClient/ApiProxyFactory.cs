@@ -7,7 +7,7 @@ namespace DD.ApiProxy.ApiProxyHttpClient
     {
         public static IApiProxy GetApiProxy(IApiProxyConfiguration configuration, IApiProxyRecordProvider apiProxyRecordProvider)
         {            
-            var folderBasedRecorder = new FolderHeirarchyBasedApiProxyRecordProvider(configuration);
+            var folderBasedRecorder = new FileBasedApiProxyRecordProvider(configuration);
             var apiProxyProviderFactory = new ApiProxyProviderFactory(folderBasedRecorder, configuration);
             return new DD.ApiProxy.ApiProxy(configuration, apiProxyProviderFactory, apiProxyRecordProvider);
         }

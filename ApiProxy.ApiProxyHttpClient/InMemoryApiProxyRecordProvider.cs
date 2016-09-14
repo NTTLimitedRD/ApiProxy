@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace DD.ApiProxy.ApiProxyHttpClient
 {
-    public class InMemoryApiProxyRecordProvider : FolderHeirarchyBasedApiProxyRecordProvider
+    public class InMemoryApiProxyRecordProvider : FileBasedApiProxyRecordProvider
     {
         private readonly IDictionary<string, ApiRecord> _mockApiResponses = new Dictionary<string, ApiRecord>();
         public InMemoryApiProxyRecordProvider(IApiProxyConfiguration proxyConfiguration) : base(proxyConfiguration)

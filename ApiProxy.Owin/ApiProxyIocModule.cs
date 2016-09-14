@@ -22,7 +22,7 @@ namespace DD.ApiProxy.Owin
             builder.RegisterType<ApiProxyProviderFactory>().AsImplementedInterfaces();
 
             // For reading the Api Records
-            builder.RegisterType<FolderHeirarchyBasedApiProxyRecordProvider>().AsImplementedInterfaces();
+            builder.RegisterType<FileBasedApiProxyRecordProvider>().AsImplementedInterfaces();
 
         }
     }
